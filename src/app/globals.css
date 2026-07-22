@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  /* Fallbacks when Telegram theme vars are unavailable */
+  --shop-bg: #f3f0ea;
+  --shop-fg: #1a1f1c;
+  --shop-muted: #5c675f;
+  --shop-surface: #fffcf7;
+  --shop-border: color-mix(in srgb, #1a1f1c 12%, transparent);
+  --shop-accent: #0f7a5a;
+  --shop-accent-fg: #f4fff9;
+  --shop-danger: #b42318;
+
+  --background: var(--shop-bg);
+  --foreground: var(--shop-fg);
+}
+
+/* Prefer Telegram theme params when the SDK binds CSS vars */
+:root {
+  --shop-bg: var(--tg-theme-bg-color, var(--tg-bg-color, #f3f0ea));
+  --shop-fg: var(--tg-theme-text-color, #1a1f1c);
+  --shop-muted: var(--tg-theme-hint-color, #5c675f);
+  --shop-surface: var(
+    --tg-theme-secondary-bg-color,
+    var(--tg-theme-section-bg-color, #fffcf7)
+  );
+  --shop-border: color-mix(
+    in srgb,
+    var(--tg-theme-hint-color, #5c675f) 28%,
+    transparent
+  );
+  --shop-accent: var(--tg-theme-button-color, #0f7a5a);
+  --shop-accent-fg: var(--tg-theme-button-text-color, #f4fff9);
+  --shop-danger: var(--tg-theme-destructive-text-color, #b42318);
+}
+
+html[data-tg-theme="dark"] {
+  --shop-bg: var(--tg-theme-bg-color, #121714);
+  --shop-fg: var(--tg-theme-text-color, #eef3ef);
+  --shop-muted: var(--tg-theme-hint-color, #9aa69e);
+  --shop-surface: var(--tg-theme-secondary-bg-color, #1a211d);
+  --shop-border: color-mix(
+    in srgb,
+    var(--tg-theme-hint-color, #9aa69e) 32%,
+    transparent
+  );
+  --shop-accent: var(--tg-theme-button-color, #2bb673);
+  --shop-accent-fg: var(--tg-theme-button-text-color, #04150d);
+  --shop-danger: var(--tg-theme-destructive-text-color, #ff8d85);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-shop-sans);
+}
+
+body {
+  background:
+    radial-gradient(
+      120% 70% at 100% -10%,
+      color-mix(in srgb, var(--shop-accent) 16%, transparent),
+      transparent 50%
+    ),
+    var(--shop-bg);
+  color: var(--shop-fg);
+  font-family: var(--font-shop-sans), "Segoe UI", sans-serif;
+  min-height: 100dvh;
+}
+
+.shop-shell {
+  color: var(--shop-fg);
+}
+
+a {
+  color: inherit;
+}
