@@ -128,8 +128,9 @@ export function PollarLogin({
 
           {telegram.inTelegram ? (
             <p className="text-[11px] leading-relaxed text-[var(--shop-muted)]">
-              OAuth may open an external browser inside Telegram. Prefer email
-              OTP if the popup is blocked.
+              Google/GitHub open in your system browser. After you finish,
+              switch back to this Telegram screen — the Mini App keeps waiting
+              and will sign you in. Prefer email OTP if that feels flaky.
             </p>
           ) : null}
 
@@ -204,7 +205,9 @@ export function PollarLogin({
 
       {step === "opening_oauth" ? (
         <p className="mt-3 text-sm text-[var(--shop-muted)]">
-          Continue in the browser window, then return here…
+          {telegram.inTelegram
+            ? "Finish Google/GitHub in the browser that just opened, then come back to Telegram — this screen will update when login completes."
+            : "Finish in the popup window. It should close when you return; this page stays put and signs you in."}
         </p>
       ) : null}
 

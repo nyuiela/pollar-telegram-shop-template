@@ -94,7 +94,7 @@ Before treating the shop as done, prove the wallet path in the real webview:
 Auth approach:
 
 - **Email OTP** is the baseline (most reliable in Telegram’s webview).
-- **Google / GitHub** are available via Pollar; inside Telegram they open with `openLink` (external browser). If blocked, fall back to email — don’t force OAuth.
+- **Google / GitHub** are available via Pollar; inside Telegram they open with `openLink` (external browser) only — finish there, then switch back to the Mini App (session is polled). In a normal browser, one popup is used (not a same-tab redirect). If OAuth is flaky, fall back to email.
 - Passkeys are out of scope.
 
 ## Shop flow

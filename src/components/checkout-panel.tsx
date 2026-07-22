@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePollar } from "@pollar/react";
 import { CopyableAddress } from "@/components/copyable-address";
@@ -162,16 +163,27 @@ export function CheckoutPanel({ product }: { product: Product }) {
   return (
     <section className="min-w-0 space-y-4 overflow-hidden">
       <div className="min-w-0 overflow-hidden rounded-2xl border border-[var(--shop-border)] bg-[var(--shop-surface)] p-5">
-        <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--shop-muted)]">
-          Checkout
-        </p>
-        <h2 className="mt-1 truncate text-xl font-semibold text-[var(--shop-fg)]">
-          {product.name}
-        </h2>
-        <p className="mt-2 font-mono text-2xl font-semibold text-[var(--shop-accent)]">
-          {product.priceUsdc}{" "}
-          <span className="text-base font-medium">USDC</span>
-        </p>
+        <div className="flex items-start gap-4">
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={80}
+            height={80}
+            className="h-16 w-16 shrink-0 rounded-xl object-cover"
+          />
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-[var(--shop-muted)]">
+              Checkout
+            </p>
+            <h2 className="mt-1 truncate text-xl font-semibold text-[var(--shop-fg)]">
+              {product.name}
+            </h2>
+            <p className="mt-2 font-mono text-2xl font-semibold text-[var(--shop-accent)]">
+              {product.priceUsdc}{" "}
+              <span className="text-base font-medium">USDC</span>
+            </p>
+          </div>
+        </div>
 
         <dl className="mt-4 min-w-0 space-y-3 text-sm">
           <div className="flex min-w-0 items-center justify-between gap-3">

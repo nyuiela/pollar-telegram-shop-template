@@ -16,7 +16,7 @@ Document anything that behaves differently in Telegram’s in-app webview versus
 | Area | Expected in Telegram webview | Implementation |
 | --- | --- | --- |
 | Email OTP | Works (plain HTTP Pollar flow) | Baseline — prefer this for demos |
-| Google / GitHub OAuth | Often restricted in webview | Pollar `login({ provider })` + Telegram `openLink` (external browser); SDK polls session until ready |
+| Google / GitHub OAuth | Often restricted in webview | Pollar `login({ provider })` + Telegram `openLink` only (no same-tab redirect). Outside Telegram: one popup (blank → URL). SDK polls until ready; user must return to the Mini App after external browser OAuth |
 | Passkey / WebAuthn | Unreliable | Out of scope |
 | Freighter / extension wallets | Unavailable | Out of scope |
 | `localStorage` | Usually available | Watch for `onStorageDegrade` → in-memory session |

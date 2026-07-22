@@ -4,7 +4,8 @@ export type Product = {
   description: string;
   /** USDC price on Stellar testnet. */
   priceUsdc: string;
-  emoji: string;
+  /** Catalog image under /public/products. */
+  image: string;
   tagline: string;
 };
 
@@ -16,7 +17,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Digital sticker pack celebrating Stellar testnet. Pays out in USDC via Pollar.",
     priceUsdc: "0.50",
-    emoji: "✦",
+    image: "/products/stellar-sticker.jpg",
     tagline: "Mini collectible",
   },
   {
@@ -25,7 +26,7 @@ export const PRODUCTS: Product[] = [
     description:
       "A voucher for a limited testnet mug. Checkout settles on-chain in USDC.",
     priceUsdc: "1.00",
-    emoji: "◎",
+    image: "/products/testnet-mug.jpg",
     tagline: "Merch voucher",
   },
   {
@@ -34,7 +35,7 @@ export const PRODUCTS: Product[] = [
     description:
       "Claim a Pollar-branded cap voucher. Paid from your embedded Pollar wallet.",
     priceUsdc: "2.50",
-    emoji: "◇",
+    image: "/products/pollar-cap.jpg",
     tagline: "Brand drop",
   },
 ];
